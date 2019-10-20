@@ -1,1 +1,20 @@
 <!-- Pokemon HTML file -->
+{% extends 'practice_format.html'  %}
+{% block page %}
+
+<!-- this will make an entry bar --> 
+ 	<div class="input-group mb-3">
+ 		<div class="input-group-prepend">
+ 			<span class="input-group-text">Enter Pokemon Here</span>
+ 		</div>
+ 		<form action="http://localhost:5000/practice_home" method="POST">
+ 			<input class="form-control" id="PokemonEntryBar" placeholder="Enter Pokemon Name" />
+ 		</form>
+ 	</div>
+
+
+	<h1 class="container">These are my favorite Pokemon.</h1>
+	 {% for i in range(0, length ) %}
+	 	<h4 class="container">{{ i, pokemon[i] }}</h4>
+	 {% endfor %}
+{% endblock %}
