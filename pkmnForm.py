@@ -4,4 +4,8 @@ from flask_wtf import FlaskForm
 # fields render and convert data 
 from wtforms import StringField, SubmitField, TextAreaField
 # import validators from wtf.validators for requiring data and email 
-from wtf.validators import 
+from wtf.validators import DataRequired 
+
+class pokemonSubmit ( FlaskForm ):
+	name = StringField( "Pokemon Name: ", validators=[ DataRequired() ])
+	submit = SubmitField( "Submit" )
