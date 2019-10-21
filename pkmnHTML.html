@@ -7,14 +7,21 @@
  		<div class="input-group-prepend">
  			<span class="input-group-text">Enter Pokemon Here</span>
  		</div>
- 		<form action="http://localhost:5000/practice_home" method="POST">
- 			<input class="form-control" id="PokemonEntryBar" placeholder="Enter Pokemon Name" />
- 		</form>
+ 		<form action="" method="POST">
+ 		<p>
+ 			<label for="pokemon_name"/>
+ 			<input class="form-control" id="PokemonEntryBar" 
+ 			placeholder="Enter Pokemon Name" type="text" name="pokemon_name" />
+ 		</p>
+ 	</form>
  	</div>
+<!-- if the message is called then it will be printed -->
+	% if message %}
+ 		<p>{{ message }}</p>
+ 	{% endif %}
 
-
-	<h1 class="container">These are my favorite Pokemon.</h1>
-	 {% for i in range(0, length ) %}
-	 	<h4 class="container">{{ i, pokemon[i] }}</h4>
+	<h1 class="container">This is my Pokemon List: </h1>
+	 {% for i in range(0, pokemonList|length ) %}
+	 	<h4 class="container">{{ i, pokemonList[i] }}</h4>
 	 {% endfor %}
 {% endblock %}
