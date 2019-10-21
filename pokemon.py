@@ -12,7 +12,7 @@ app.app_context()
 pokemonList = [ "Pikachu", "Bulbasaur", "Squirtle", "Charmander" ]
 
 # create a route for the site 
-app.route( 'pokeList', methods=[ 'POST', 'GET' ])
+@app.route( 'pokeList', methods=[ 'POST', 'GET' ])
 def pokeList(): 
 	message = ""
 	if request.method = 'POST': 
