@@ -7,18 +7,28 @@
  		<div class="input-group-prepend">
  			<span class="input-group-text">Enter Pokemon Here</span>
  		</div>
+<!-- This form checks the csrf_token() of the form, then it gets the labels of the form 
+     creating the inputs according to each field's parameters -->
  		<form action="" method="POST">
- 		<p>
- 			<label for="pokemon_name"/>
- 			<input class="form-control" id="PokemonEntryBar" 
- 			placeholder="Enter Pokemon Name" type="text" name="pokemon_name" />
- 		</p>
- 	</form>
+
+			{{ form.csrf_token() }}
+
+			{% for field in form if field.name != "csrf token" %}
+				<p>{{ field.label() }}</p>
+				<p>{{ field }}
+					{% for error in field.errors %}
+						{{ error }}
+					{% endfor %}
+				</p>
+			{% endfor %}
+		</form>
  	</div>
-<!-- if the message is called then it will be printed -->
-	% if message %}
- 		<p>{{ message }}</p>
- 	{% endif %}
+
+<!-- This returns the message parameter in flash message functions listed
+     and separates each by a category added as a class to paragraph tag ---> 
+{% for category, message in get_flashed_messages( with_categories=true) %}
+		<p class="{{ category }}">{{ message }}</p>
+	{% endfor %}
 
 	<h1 class="container">This is my Pokemon List: </h1>
 	 {% for i in range(0, pokemonList|length ) %}
