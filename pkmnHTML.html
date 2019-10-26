@@ -31,7 +31,7 @@
 	{% endfor %}
 
 	<h1 class="container">This is my Pokemon List: </h1>
-	 {% for i in range(0, pokemonList|length ) %}
-	 	<h4 class="container">{{ i, pokemonList[i] }}</h4>
+	 {% for each_pokemon in pokemonList %}
+	 	<h4 class="container">{{ each_pokemon }}</h4>
 	 {% endfor %}
 {% endblock %}
