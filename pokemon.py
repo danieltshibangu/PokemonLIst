@@ -34,7 +34,7 @@ def pokeList():
 		print( "\nData Recieved...Now redirecting.")
 		return redirect( request.url )
 
-	return render_template( "pkmnHTML.html", form=form )
+	return render_template( "pkmnHTML.html", form=form, pokemonList=pokemonList )
 
 if __name__ == "__main__":
 	app.run( debug=True )
